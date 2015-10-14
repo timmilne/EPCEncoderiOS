@@ -1,0 +1,5 @@
+#Stop tracking this
+*.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad/UserInterfaceState.xcuserstate
+
+#Ignore any directories and files from the builds
+/build/
