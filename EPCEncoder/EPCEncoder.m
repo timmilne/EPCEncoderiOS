@@ -24,9 +24,9 @@
 
 // Encode with DPCI
 - (void)withDpt:(NSString *)dpt
-        cls:(NSString *)cls
-        itm:(NSString *)itm
-        ser:(NSString *)ser {
+            cls:(NSString *)cls
+            itm:(NSString *)itm
+            ser:(NSString *)ser {
     
     // Have we done this?
     if (_convert == nil) _convert = [Converter alloc];
@@ -66,19 +66,19 @@
     // 24 bits are the item number (object class): 000 + Item + Check Digit (7 digits)
     // 36 bits are the serial number (guaranteed 10 digits)
     // = 96 bits
-    NSString *dpt_cls_dec = [NSString stringWithFormat:@"049%@%@",_dpt,_cls];
+    NSString *dpt_cls_dec = [NSString stringWithFormat:@"049%@%@",_dpt,_cls];   // Leading zeroes not technically valid
     NSString *dpt_cls_bin = [_convert Dec2Bin:(dpt_cls_dec)];
     for (int i=(int)[dpt_cls_bin length]; i<(int)28; i++) {
         dpt_cls_bin = [NSString stringWithFormat:@"0%@", dpt_cls_bin];
     }
     NSString *upc = [NSString stringWithFormat:@"49%@%@%@",_dpt,_cls,_itm];
     NSString *chkdgt = [self calculateCheckDigit:upc];
-    NSString *itm_chk_dec = [NSString stringWithFormat:@"00%@%@",_itm,chkdgt];
+    NSString *itm_chk_dec = [NSString stringWithFormat:@"00%@%@",_itm,chkdgt];  // Leading zeroes not technically valid
     NSString *itm_chk_bin = [_convert Dec2Bin:(itm_chk_dec)];
     for (int i=(int)[itm_chk_bin length]; i<(int)24; i++) {
         itm_chk_bin = [NSString stringWithFormat:@"0%@", itm_chk_bin];
     }
-    NSString *ser_bin = [_convert Dec2Bin:(_ser)];
+    NSString *ser_bin = [_convert Dec2Bin:(_ser)];                              // Unchecked leading (invalid) leading zeroes
     for (int i=(int)[ser_bin length]; i<(int)36; i++) {
         ser_bin = [NSString stringWithFormat:@"0%@", ser_bin];
     }
@@ -92,10 +92,86 @@
     //    NSString *GID_Bin_Ken_str = [self Hex2Bin:GID_Hex_Ken_str];
 }
 
+// Encode GID with GTIN (National brand replacement tag)
+- (void)gidWithGTIN:(NSString *)gtin
+                ser:(NSString *)ser {
+    
+    // Have we done this?
+    if (_convert == nil) _convert = [Converter alloc];
+    
+    // Set the inputs
+    NSString *barcode = gtin;
+    [self setDpt:@""];
+    [self setCls:@""];
+    [self setItm:@""];
+    [self setSer:ser];
+    [self setGtin:@""];
+    [self setSgtin_bin:@""];
+    [self setSgtin_hex:@""];
+    [self setSgtin_uri:@""];
+    
+    int mgrBinLen   = 28;
+    int mgrDecLen   = 8;
+    int itmBinLen   = 24;
+    int itmDecLen   = 7;
+    
+    // Make sure the inputs are not too long (especially the Serial Number)
+    if ([barcode length] > 14) {
+        barcode = [_gtin substringToIndex:14];
+    }
+    while ([barcode length] < 14) {
+        barcode = [NSString stringWithFormat:@"0%@", barcode];
+    }
+    if ([_ser length] > 10) {
+        _ser = [_ser substringToIndex:10];
+    }
+    while ([_ser length] < 10) {
+        _ser = [NSString stringWithFormat:@"0%@", _ser];
+    }
+    
+    // GID - e.g. urn:epc:tag:gid-96:4928100.85702.12345
+    //            3504B3264014EC6000003039
+    //
+    // Here is how to repack a GTIN using the GID-96 into the EPC
+    // 8 bits are the header: 00110101 or 0x35 (GID-96)
+    // No Filter
+    // No Partition
+    // 28 bits are the manager number: digits 1 to 8 of GTIN (8 digits)
+    // 24 bits are the item number (object class): 0 + digits 9 to 14 of GTIN (7 digits)
+    // 36 bits are the serial number (guaranteed 10 digits)
+    // = 96 bits
+    NSString *mgrDec = [barcode substringToIndex:mgrDecLen];    // Note: there will be leading zeroes (not technically valid)
+    NSString *mgrBin = [_convert Dec2Bin:(mgrDec)];
+    for (int i=(int)[mgrBin length]; i<(int)mgrBinLen; i++) {
+        mgrBin = [NSString stringWithFormat:@"0%@", mgrBin];
+    }
+    
+    // Include the check digit!!
+    NSString *itmDec = [barcode substringFromIndex:mgrDecLen];
+    for (int i=(int)[itmDec length]; i<(int)itmDecLen; i++) {   // Prepend leading zeroes (not technically valid)
+        itmDec = [NSString stringWithFormat:@"0%@", itmDec];
+    }
+    NSString *itmBin = [_convert Dec2Bin:(itmDec)];
+    for (int i=(int)[itmBin length]; i<(int)itmBinLen; i++) {
+        itmBin = [NSString stringWithFormat:@"0%@", itmBin];
+    }
+    NSString *serBin = [_convert Dec2Bin:(_ser)];
+    for (int i=(int)[serBin length]; i<(int)36; i++) {          // Prepend leading zeroes (not technically valid)
+        serBin = [NSString stringWithFormat:@"0%@", serBin];
+    }
+    [self setGid_bin:[NSString stringWithFormat:@"%@%@%@%@",GID_Bin_Prefix,mgrBin,itmBin,serBin]];
+    [self setGid_hex:[_convert Bin2Hex:(_gid_bin)]];
+    [self setGid_uri:[NSString stringWithFormat:@"%@%@.%@.%@",GID_URI_Prefix,mgrDec,itmDec,_ser]];
+    
+    // Check with http://www.kentraub.net/tools/tagxlate/EPCEncoderDecoder.html
+    //    NSString *GID_Hex_Ken_str = @"35000CBCF08696C005F61139";
+    //    NSString *GID_Bin_Ken_str = [self Hex2Bin:GID_Hex_Ken_str];
+}
+
 // Encode with GTIN
 - (void)withGTIN:(NSString *)gtin
-        ser:(NSString *)ser
-        partBin:(NSString *)partBin{
+             ser:(NSString *)ser
+         partBin:(NSString *)partBin {
     
     // Have we done this?
     if (_convert == nil) _convert = [Converter alloc];
