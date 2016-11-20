@@ -40,6 +40,10 @@
     [self setSgtin_bin:@""];
     [self setSgtin_hex:@""];
     [self setSgtin_uri:@""];
+    [self setTcin:@""];
+    [self setGiai_bin:@""];
+    [self setGiai_hex:@""];
+    [self setGiai_uri:@""];
     
     // Make sure the inputs are not too long (especially the Serial Number)
     if ([_dpt length] > 3) {
@@ -109,6 +113,10 @@
     [self setSgtin_bin:@""];
     [self setSgtin_hex:@""];
     [self setSgtin_uri:@""];
+    [self setTcin:@""];
+    [self setGiai_bin:@""];
+    [self setGiai_hex:@""];
+    [self setGiai_uri:@""];
     
     int mgrBinLen   = 28;
     int mgrDecLen   = 8;
@@ -185,6 +193,10 @@
     [self setGid_bin:@""];
     [self setGid_hex:@""];
     [self setGid_uri:@""];
+    [self setTcin:@""];
+    [self setGiai_bin:@""];
+    [self setGiai_hex:@""];
+    [self setGiai_uri:@""];
     
     int mgrBinLen   = 0;
     int mgrDecLen   = 0;
@@ -286,6 +298,76 @@
     // Check with http://www.kentraub.net/tools/tagxlate/EPCEncoderDecoder.html
     //    NSString *SGTIN_Hex_Ken_str = @"303402AE7C2CFB8000003039";
     //    NSString *SGTIN_Bin_Ken_str = [self Hex2Bin:SGTIN_Hex_Ken_str];
+}
+
+- (void)withTCIN:(NSString *)tcin
+             ser:(NSString *)ser {
+    
+    // Have we done this?
+    if (_convert == nil) _convert = [Converter alloc];
+    
+    // Set the inputs
+    [self setDpt:@""];
+    [self setCls:@""];
+    [self setItm:@""];
+    [self setSer:ser];
+    [self setGtin:@""];
+    [self setGid_bin:@""];
+    [self setGid_hex:@""];
+    [self setGid_uri:@""];
+    [self setSgtin_bin:@""];
+    [self setSgtin_hex:@""];
+    [self setSgtin_uri:@""];
+    [self setTcin:tcin];
+    
+    // We will encode TCINs in a GIAI, we'll only use partition value '010' since the TCIN is 10 digits
+    int mgrBinLen   = 34;
+    int mgrDecLen   = 10;
+    int serBinLen   = 48;
+    int serDecLen   = 15;
+    
+    // Make sure the inputs are not too long (especially the Serial Number)
+    if ([_tcin length] > mgrDecLen) {
+        _tcin = [_tcin substringToIndex:mgrDecLen];
+    }
+    while ([_tcin length] < mgrDecLen) {
+        _tcin = [NSString stringWithFormat:@"0%@", _tcin];
+    }
+    if ([_ser length] > serDecLen) {
+        // GIAI serial number max = 15
+        _ser = [_ser substringToIndex:serDecLen];
+    }
+    
+    // GIAI - e.g. urn:epc:tag:giai-96:0.0016399080.10000000000001
+    //              340800FA3AE809184E72A001
+    //
+    // A TCIN is a 10 digit decimal number.  We'll put that in the manager field.  The serial number
+    // goes in the serial number field of the GIAI.
+    //
+    // Here is how to pack the GIAI-96 into the EPC
+    // 8 bits are the header: 00110100 or 0x34 (GIAI-96)
+    // 3 bits are the Filter: 000 (0 All Others)
+    // 3 bits are the Partition: 010 (for a 10 digit manager number)
+    // 34 bits are the manager number: 10 digit TCIN
+    // 48 bits are the serial number (guaranteed 15 digits)
+    // = 96 bits
+    NSString *mgrDec = _tcin;
+    NSString *mgrBin = [_convert Dec2Bin:(mgrDec)];
+    for (int i=(int)[mgrBin length]; i<(int)mgrBinLen; i++) {
+        mgrBin = [NSString stringWithFormat:@"0%@", mgrBin];
+    }
+    
+    NSString *serBin = [_convert Dec2Bin:(_ser)];
+    for (int i=(int)[serBin length]; i<(int)serBinLen; i++) {
+        serBin = [NSString stringWithFormat:@"0%@", serBin];
+    }
+    [self setGiai_bin:[NSString stringWithFormat:@"%@000010%@%@",GIAI_Bin_Prefix,mgrBin,serBin]];
+    [self setGiai_hex:[_convert Bin2Hex:(_giai_bin)]];
+    [self setGiai_uri:[NSString stringWithFormat:@"%@%@.%@",GIAI_URI_Prefix,mgrDec,_ser]];
+    
+    // Check with http://www.kentraub.net/tools/tagxlate/EPCEncoderDecoder.html
+    //    NSString *GIAI_Hex_Ken_str = @"340800FA3AE809184E72A001";
+    //    NSString *GIAI_Bin_Ken_str = [self Hex2Bin:GIAI_Hex_Ken_str];
 }
 
 // Quick Check Digit calculator
