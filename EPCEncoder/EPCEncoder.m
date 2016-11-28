@@ -287,10 +287,23 @@
     for (int i=(int)[itmBin length]; i<(int)itmBinLen; i++) {
         itmBin = [NSString stringWithFormat:@"0%@", itmBin];
     }
+    
     NSString *serBin = [_convert Dec2Bin:(_ser)];
     for (int i=(int)[serBin length]; i<(int)38; i++) {
         serBin = [NSString stringWithFormat:@"0%@", serBin];
     }
+    
+    // The return from Dec2Bin is multiples of 4, so chop off any leading bits for fields that aren't
+    if ([mgrBin length] > mgrBinLen) {
+        mgrBin = [mgrBin substringFromIndex:([mgrBin length] - mgrBinLen)];
+    }
+    if ([itmBin length] > itmBinLen) {
+        itmBin = [mgrBin substringFromIndex:([itmBin length] - itmBinLen)];
+    }
+    if ([serBin length] > 38) {
+        serBin = [mgrBin substringFromIndex:([serBin length] - 38)];
+    }
+    
     [self setSgtin_bin:[NSString stringWithFormat:@"%@001%@%@%@%@",SGTIN_Bin_Prefix,partBin,mgrBin,itmBin,serBin]];
     [self setSgtin_hex:[_convert Bin2Hex:(_sgtin_bin)]];
     [self setSgtin_uri:[NSString stringWithFormat:@"%@%@.%@.%@",SGTIN_URI_Prefix,mgrDec,itmDec,_ser]];
@@ -361,6 +374,12 @@
     for (int i=(int)[serBin length]; i<(int)serBinLen; i++) {
         serBin = [NSString stringWithFormat:@"0%@", serBin];
     }
+    
+    // The return from Dec2Bin is multiples of 4, so chop off any leading bits for fields that aren't
+    if ([mgrBin length] > mgrBinLen) {
+        mgrBin = [mgrBin substringFromIndex:([mgrBin length] - mgrBinLen)];
+    }
+    
     [self setGiai_bin:[NSString stringWithFormat:@"%@000010%@%@",GIAI_Bin_Prefix,mgrBin,serBin]];
     [self setGiai_hex:[_convert Bin2Hex:(_giai_bin)]];
     [self setGiai_uri:[NSString stringWithFormat:@"%@%@.%@",GIAI_URI_Prefix,mgrDec,_ser]];
