@@ -22,6 +22,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		B71BD7102228C04300189DDB /* TCINEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = B71BD70E2228C04300189DDB /* TCINEncoder.m */; };
+		B71BD7142228C05200189DDB /* TIAIEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = B71BD7122228C05200189DDB /* TIAIEncoder.m */; };
+		B71BD7182228C69700189DDB /* SerialNumberGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = B71BD7162228C69700189DDB /* SerialNumberGenerator.m */; };
+		B71BD7192228C69700189DDB /* SerialNumberGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = B71BD7172228C69700189DDB /* SerialNumberGenerator.h */; };
 		B79104881BCD599C00E9DBF6 /* EPCEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = B79104871BCD599C00E9DBF6 /* EPCEncoder.m */; };
 		B791048E1BCD599C00E9DBF6 /* libEPCEncoder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B79104821BCD599C00E9DBF6 /* libEPCEncoder.a */; };
 		B791049E1BCD5A5400E9DBF6 /* Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = B791049D1BCD5A5400E9DBF6 /* Converter.m */; };
@@ -29,6 +33,10 @@
 		B79104A21BCD5A9D00E9DBF6 /* EPCEncoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B79104A01BCD5A9D00E9DBF6 /* EPCEncoderTests.m */; };
 		B79104A61BCD5E2C00E9DBF6 /* Converter.h in Headers */ = {isa = PBXBuildFile; fileRef = B791049C1BCD5A5400E9DBF6 /* Converter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B79104A71BCD5E2F00E9DBF6 /* EPCEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = B79104851BCD599C00E9DBF6 /* EPCEncoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B7E0D4E62228D60600A2E511 /* TCINEncoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7E0D4E52228D60600A2E511 /* TCINEncoderTests.m */; };
+		B7E0D4E82229B64A00A2E511 /* TIAIEncoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7E0D4E72229B64A00A2E511 /* TIAIEncoderTests.m */; };
+		B7E0D4E9222A237200A2E511 /* TCINEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = B71BD70D2228C04300189DDB /* TCINEncoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B7E0D4EA222A237600A2E511 /* TIAIEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = B71BD7112228C05200189DDB /* TIAIEncoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +69,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B71BD70D2228C04300189DDB /* TCINEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCINEncoder.h; sourceTree = "<group>"; };
+		B71BD70E2228C04300189DDB /* TCINEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCINEncoder.m; sourceTree = "<group>"; };
+		B71BD7112228C05200189DDB /* TIAIEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TIAIEncoder.h; sourceTree = "<group>"; };
+		B71BD7122228C05200189DDB /* TIAIEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TIAIEncoder.m; sourceTree = "<group>"; };
+		B71BD7162228C69700189DDB /* SerialNumberGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerialNumberGenerator.m; sourceTree = "<group>"; };
+		B71BD7172228C69700189DDB /* SerialNumberGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialNumberGenerator.h; sourceTree = "<group>"; };
 		B79104821BCD599C00E9DBF6 /* libEPCEncoder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEPCEncoder.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B79104851BCD599C00E9DBF6 /* EPCEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPCEncoder.h; sourceTree = "<group>"; };
 		B79104871BCD599C00E9DBF6 /* EPCEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPCEncoder.m; sourceTree = "<group>"; };
@@ -70,6 +84,8 @@
 		B791049D1BCD5A5400E9DBF6 /* Converter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Converter.m; sourceTree = "<group>"; };
 		B791049F1BCD5A9D00E9DBF6 /* ConverterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConverterTests.m; sourceTree = "<group>"; };
 		B79104A01BCD5A9D00E9DBF6 /* EPCEncoderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPCEncoderTests.m; sourceTree = "<group>"; };
+		B7E0D4E52228D60600A2E511 /* TCINEncoderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCINEncoderTests.m; sourceTree = "<group>"; };
+		B7E0D4E72229B64A00A2E511 /* TIAIEncoderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TIAIEncoderTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,11 +107,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B71BD70A2228BF5C00189DDB /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				B791049C1BCD5A5400E9DBF6 /* Converter.h */,
+				B791049D1BCD5A5400E9DBF6 /* Converter.m */,
+			);
+			path = Converter;
+			sourceTree = "<group>";
+		};
+		B71BD70B2228BF6E00189DDB /* TCINEncoder */ = {
+			isa = PBXGroup;
+			children = (
+				B71BD70D2228C04300189DDB /* TCINEncoder.h */,
+				B71BD70E2228C04300189DDB /* TCINEncoder.m */,
+			);
+			path = TCINEncoder;
+			sourceTree = "<group>";
+		};
+		B71BD70C2228BF7C00189DDB /* TIAIEncoder */ = {
+			isa = PBXGroup;
+			children = (
+				B71BD7112228C05200189DDB /* TIAIEncoder.h */,
+				B71BD7122228C05200189DDB /* TIAIEncoder.m */,
+			);
+			path = TIAIEncoder;
+			sourceTree = "<group>";
+		};
+		B71BD7152228C66600189DDB /* SerialNumberGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				B71BD7172228C69700189DDB /* SerialNumberGenerator.h */,
+				B71BD7162228C69700189DDB /* SerialNumberGenerator.m */,
+			);
+			path = SerialNumberGenerator;
+			sourceTree = "<group>";
+		};
 		B79104791BCD599C00E9DBF6 = {
 			isa = PBXGroup;
 			children = (
+				B71BD7152228C66600189DDB /* SerialNumberGenerator */,
+				B71BD70A2228BF5C00189DDB /* Converter */,
 				B79104841BCD599C00E9DBF6 /* EPCEncoder */,
-				B79104911BCD599C00E9DBF6 /* EPCEncoderTests */,
+				B71BD70B2228BF6E00189DDB /* TCINEncoder */,
+				B71BD70C2228BF7C00189DDB /* TIAIEncoder */,
+				B79104911BCD599C00E9DBF6 /* EncoderTests */,
 				B79104831BCD599C00E9DBF6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,22 +168,22 @@
 		B79104841BCD599C00E9DBF6 /* EPCEncoder */ = {
 			isa = PBXGroup;
 			children = (
-				B791049C1BCD5A5400E9DBF6 /* Converter.h */,
-				B791049D1BCD5A5400E9DBF6 /* Converter.m */,
 				B79104851BCD599C00E9DBF6 /* EPCEncoder.h */,
 				B79104871BCD599C00E9DBF6 /* EPCEncoder.m */,
 			);
 			path = EPCEncoder;
 			sourceTree = "<group>";
 		};
-		B79104911BCD599C00E9DBF6 /* EPCEncoderTests */ = {
+		B79104911BCD599C00E9DBF6 /* EncoderTests */ = {
 			isa = PBXGroup;
 			children = (
 				B791049F1BCD5A9D00E9DBF6 /* ConverterTests.m */,
 				B79104A01BCD5A9D00E9DBF6 /* EPCEncoderTests.m */,
+				B7E0D4E52228D60600A2E511 /* TCINEncoderTests.m */,
+				B7E0D4E72229B64A00A2E511 /* TIAIEncoderTests.m */,
 				B79104921BCD599C00E9DBF6 /* Supporting Files */,
 			);
-			path = EPCEncoderTests;
+			path = EncoderTests;
 			sourceTree = "<group>";
 		};
 		B79104921BCD599C00E9DBF6 /* Supporting Files */ = {
@@ -147,6 +203,9 @@
 			files = (
 				B79104A61BCD5E2C00E9DBF6 /* Converter.h in Headers */,
 				B79104A71BCD5E2F00E9DBF6 /* EPCEncoder.h in Headers */,
+				B7E0D4E9222A237200A2E511 /* TCINEncoder.h in Headers */,
+				B7E0D4EA222A237600A2E511 /* TIAIEncoder.h in Headers */,
+				B71BD7192228C69700189DDB /* SerialNumberGenerator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +312,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\n# For everything here, do it in the build directory\n\nexport FRAMEWORK_LOCN=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework\"\n#export FRAMEWORK_LOCN=\"build/${PRODUCT_NAME}.framework\"\n\n# echo ${FRAMEWORK_LOCN}\n\n# Create the path to the real Headers die\nmkdir -p \"${FRAMEWORK_LOCN}/Versions/A/Headers\"\n\n# Create the required symlinks\n/bin/ln -sfh A \"${FRAMEWORK_LOCN}/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${FRAMEWORK_LOCN}/Headers\"\n/bin/ln -sfh \"Versions/Current/${PRODUCT_NAME}\" \\\n\"${FRAMEWORK_LOCN}/${PRODUCT_NAME}\"\n\n# Copy the public headers into the framework\n/bin/cp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \\\n\"${FRAMEWORK_LOCN}/Versions/A/Headers\"";
+			shellScript = "set -e\n\n# For everything here, do it in the build directory\n\nexport FRAMEWORK_LOCN=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework\"\n#export FRAMEWORK_LOCN=\"build/${PRODUCT_NAME}.framework\"\n\n# echo ${FRAMEWORK_LOCN}\n\n# Create the path to the real Headers dir\nmkdir -p \"${FRAMEWORK_LOCN}/Versions/A/Headers\"\n\n# Create the required symlinks\n/bin/ln -sfh A \"${FRAMEWORK_LOCN}/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${FRAMEWORK_LOCN}/Headers\"\n/bin/ln -sfh \"Versions/Current/${PRODUCT_NAME}\" \\\n\"${FRAMEWORK_LOCN}/${PRODUCT_NAME}\"\n\n# Copy the public headers into the framework\n/bin/cp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \\\n\"${FRAMEWORK_LOCN}/Versions/A/Headers\"\n";
 		};
 		B79104AF1BCD6F2600E9DBF6 /* MultiPlatform Build */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -267,7 +326,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\n# If we're already inside this script then die\nif [ -n \"$RW_MULTIPLATFORM_BUILD_IN_PROGRESS\" ]; then\nexit 0\nfi\nexport RW_MULTIPLATFORM_BUILD_IN_PROGRESS=1\n\nRW_FRAMEWORK_NAME=${PROJECT_NAME}\nRW_INPUT_STATIC_LIB=\"lib${PROJECT_NAME}.a\"\nRW_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework\"\n\nfunction build_static_library {\n    # Will rebuild the static library as specified\n    #     build_static_library sdk\n    xcrun xcodebuild -project \"${PROJECT_FILE_PATH}\" \\\n    -target \"${TARGET_NAME}\" \\\n    -configuration \"${CONFIGURATION}\" \\\n    -sdk \"${1}\" \\\n    ONLY_ACTIVE_ARCH=NO \\\n    BUILD_DIR=\"${BUILD_DIR}\" \\\n    OBJROOT=\"${OBJROOT}\" \\\n    BUILD_ROOT=\"${BUILD_ROOT}\" \\\n    SYMROOT=\"${SYMROOT}\" $ACTION\n}\n\nfunction make_fat_library {\n    # Will smash 2 static libs together\n    #     make_fat_library in1 in2 out\n    xcrun lipo -create \"${1}\" \"${2}\" -output \"${3}\"\n}\n\n# 1 - Extract the platform (iphoneos/iphonesimulator) from the SDK name\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]; then\nRW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 2 - Extract the version from the SDK\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]; then\nRW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 3 - Determine the other platform\nif [ \"$RW_SDK_PLATFORM\" == \"iphoneos\" ]; then\nRW_OTHER_PLATFORM=iphonesimulator\nelse\nRW_OTHER_PLATFORM=iphoneos\nfi\n\n# 4 - Find the build directory\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$RW_SDK_PLATFORM$ ]]; then\nRW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${RW_OTHER_PLATFORM}\"\nelse\necho \"Could not find other platform build directory.\"\nexit 1\nfi\n\n# Build the other platform.\nbuild_static_library \"${RW_OTHER_PLATFORM}${RW_SDK_VERSION}\"\n\n# If we're currently building for iphonesimulator, then need to rebuild\n#   to ensure that we get both i386 and x86_64\nif [ \"$RW_SDK_PLATFORM\" == \"iphonesimulator\" ]; then\nbuild_static_library \"${SDK_NAME}\"\nfi\n\n# Join the 2 static libs into 1 and push into the .framework\nmake_fat_library \"${BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Ensure that the framework is present in both platform's build directories\ncp -a \"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Copy the framework to the build directory\nditto \"${RW_FRAMEWORK_LOCATION}\" \"build/${RW_FRAMEWORK_NAME}.framework\"\ncp -r \"${BUILT_PRODUCTS_DIR}/include\" \"build/.\"\ncp -a \"${BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \"build/.\"";
+			shellScript = "set -e\n\n# If we're already inside this script then die\nif [ -n \"$RW_MULTIPLATFORM_BUILD_IN_PROGRESS\" ]; then\nexit 0\nfi\nexport RW_MULTIPLATFORM_BUILD_IN_PROGRESS=1\n\nRW_FRAMEWORK_NAME=${PROJECT_NAME}\nRW_INPUT_STATIC_LIB=\"lib${PROJECT_NAME}.a\"\nRW_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework\"\n\nfunction build_static_library {\n    # Will rebuild the static library as specified\n    #     build_static_library sdk\n    xcrun xcodebuild -project \"${PROJECT_FILE_PATH}\" \\\n    -target \"${TARGET_NAME}\" \\\n    -configuration \"${CONFIGURATION}\" \\\n    -sdk \"${1}\" \\\n    ONLY_ACTIVE_ARCH=NO \\\n    BUILD_DIR=\"${BUILD_DIR}\" \\\n    OBJROOT=\"${OBJROOT}\" \\\n    BUILD_ROOT=\"${BUILD_ROOT}\" \\\n    SYMROOT=\"${SYMROOT}\" $ACTION\n}\n\nfunction make_fat_library {\n    # Will smash 2 static libs together\n    #     make_fat_library in1 in2 out\n    xcrun lipo -create \"${1}\" \"${2}\" -output \"${3}\"\n}\n\n# 1 - Extract the platform (iphoneos/iphonesimulator) from the SDK name\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]; then\nRW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 2 - Extract the version from the SDK\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]; then\nRW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 3 - Determine the other platform\nif [ \"$RW_SDK_PLATFORM\" == \"iphoneos\" ]; then\nRW_OTHER_PLATFORM=iphonesimulator\nelse\nRW_OTHER_PLATFORM=iphoneos\nfi\n\n# 4 - Find the build directory\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$RW_SDK_PLATFORM$ ]]; then\nRW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${RW_OTHER_PLATFORM}\"\nelse\necho \"Could not find other platform build directory.\"\nexit 1\nfi\n\n# Build the other platform.\nbuild_static_library \"${RW_OTHER_PLATFORM}${RW_SDK_VERSION}\"\n\n# If we're currently building for iphonesimulator, then need to rebuild\n#   to ensure that we get both i386 and x86_64\nif [ \"$RW_SDK_PLATFORM\" == \"iphonesimulator\" ]; then\nbuild_static_library \"${SDK_NAME}\"\nfi\n\n# Join the 2 static libs into 1 and push into the .framework\nmake_fat_library \"${BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Ensure that the framework is present in both platform's build directories\ncp -a \"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Copy the framework to the build directory\nditto \"${RW_FRAMEWORK_LOCATION}\" \"build/${RW_FRAMEWORK_NAME}.framework\"\ncp -r \"${BUILT_PRODUCTS_DIR}/include\" \"build/.\"\ncp -a \"${BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \"build/.\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -277,7 +336,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B791049E1BCD5A5400E9DBF6 /* Converter.m in Sources */,
+				B71BD7102228C04300189DDB /* TCINEncoder.m in Sources */,
 				B79104881BCD599C00E9DBF6 /* EPCEncoder.m in Sources */,
+				B71BD7142228C05200189DDB /* TIAIEncoder.m in Sources */,
+				B71BD7182228C69700189DDB /* SerialNumberGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +349,8 @@
 			files = (
 				B79104A11BCD5A9D00E9DBF6 /* ConverterTests.m in Sources */,
 				B79104A21BCD5A9D00E9DBF6 /* EPCEncoderTests.m in Sources */,
+				B7E0D4E62228D60600A2E511 /* TCINEncoderTests.m in Sources */,
+				B7E0D4E82229B64A00A2E511 /* TIAIEncoderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +487,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = EPCEncoderTests/Info.plist;
+				INFOPLIST_FILE = EncoderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.target.playground.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -436,7 +500,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6B6T6M8GHY;
 				FRAMEWORK_SEARCH_PATHS = "";
-				INFOPLIST_FILE = EPCEncoderTests/Info.plist;
+				INFOPLIST_FILE = EncoderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.target.playground.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -96,3 +96,10 @@ includes everything.  By setting that, and then setting build active architectur
 the standard ones, eventually.  So I may not need to worry about this, just rebuild this on occasion.'
 
 
+TPM - 2/28/19
+
+Added TCINEncoder and TIAIEncoder to the library:
+
+EPCEncoder - encodes UPCs in GS1 compliant EPC encodings
+TCINEncoder - encodes retail TCINs in non GS1 compliant RFID tags for Target internal use only
+TIAIEncoder - encodes non retail TIAIs in non GS1 compliant RFID tags for Target internal use only 
