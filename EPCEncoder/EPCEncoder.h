@@ -17,8 +17,6 @@ static NSString *SGTIN_URI_Prefix = @"urn:epc:tag:sgtin-96:1.";
 static NSString *SGTIN_Bin_Prefix = @"00110000";
 static NSString *GID_URI_Prefix   = @"urn:epc:tag:gid-96:";
 static NSString *GID_Bin_Prefix   = @"00110101";
-//static NSString *GIAI_URI_Prefix   = @"urn:epc:tag:giai-96:0.";
-//static NSString *GIAI_Bin_Prefix   = @"00110100";
 
 @interface EPCEncoder : NSObject
 

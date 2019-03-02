@@ -19,16 +19,12 @@
     NSString   *_ser;
     NSString   *_gtin;
     NSString   *_partBin;
-    NSString   *_tcin;
     NSString   *_test_gid_bin;
     NSString   *_test_gid_hex;
     NSString   *_test_gid_uri;
     NSString   *_test_sgtin_bin;
     NSString   *_test_sgtin_hex;
     NSString   *_test_sgtin_uri;
-    NSString   *_test_giai_bin;
-    NSString   *_test_giai_hex;
-    NSString   *_test_giai_uri;
     NSString   *_test_empty;
 }
 

@@ -184,7 +184,8 @@
     [self setGtin:gtin];
     [self setGid_bin:@""];
     [self setGid_hex:@""];
-    [self setGid_uri:@""];    
+    [self setGid_uri:@""];
+    
     int mgrBinLen   = 0;
     int mgrDecLen   = 0;
     int itmBinLen   = 0;
@@ -274,7 +275,6 @@
     for (int i=(int)[itmBin length]; i<(int)itmBinLen; i++) {
         itmBin = [NSString stringWithFormat:@"0%@", itmBin];
     }
-    
     NSString *serBin = [_convert Dec2Bin:(_ser)];
     for (int i=(int)[serBin length]; i<(int)38; i++) {
         serBin = [NSString stringWithFormat:@"0%@", serBin];
