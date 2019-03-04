@@ -1,4 +1,9 @@
 # EPCEncoderiOS
+TPM - 3/3/19
+
+Use RFIDEncoderiOS going forward.
+
+
 Build the EPCEncoder lib and framework for iOS, includes Converter.
 
 Note: most of this project leverages this great tutorial to create a framework:
